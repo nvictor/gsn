@@ -35,7 +35,7 @@ Defines where the groove perceives structural gravity.
 - `A↓` - downbeat-anchored (beat 1 dominant)
 - `A↑` - upbeat-anchored
 - `A↔` - backbeat-anchored (beats 2 & 4 define identity)
-- `A=` - neutral, floating, no anchor
+- `A=` - neutral, floating, no dominant anchor
 
 ### 3. Syncopation (S)
 
@@ -99,16 +99,22 @@ G16  A↓  S+  C<
 
 ### Example 3: Floating broken-beat loop
 
+Hit pattern:
+
+```
+1, 1a, 2&, 3, 3a, 4&
+```
+
 Structural reading:
 - Sixteenth-note grid
 - No dominant anchor
 - Sustained syncopation
-- No clear cadence
+- Both anticipatory and delayed cadence
 
 GSN:
 
 ```
-G16  A=  S+
+G16  A=  S+ C<>
 ```
 
 ## Interpretation Rules (Hard Constraints)
