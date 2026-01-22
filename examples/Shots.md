@@ -1,3 +1,3 @@
-Shots
+Shots by LMFAO and Lil' Jon
 
-G4 A↓ D<>
+G16 A↓ S+

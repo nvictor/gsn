@@ -1,3 +1,3 @@
-It's My Life (note: Shots has one displacement while this groove has two)
+It's My Life - Dr. Alban
 
-G4 A↓ D<>
+G16 A↓ S+
