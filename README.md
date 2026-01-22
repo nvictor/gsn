@@ -53,6 +53,7 @@ Describes where structural resolution occurs relative to the anchor reset.
 - (omitted) - resolves on the anchor
 - `C<` - anticipatory cadence (resolves before anchor)
 - `C>` - delayed cadence (resolves after anchor)
+- `C<>` - both anticipatory and delayed cadence
 
 ## Examples
 
