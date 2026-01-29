@@ -22,35 +22,43 @@ GSN is a structural rhythm notation system. It is a compact symbolic system that
 
 Defines the number of felt groupings of the measure. It describes how many main impulses the listener perceives, regardless of the mathematical time signature.
 
-- `P5` - 5-pulse feel
-- `P4` - 4-pulse feel
-- `P3` - 3-pulse feel
-- `P2` - 2-pulse feel
+| Symbol | Meaning |
+|--------|---------|
+| `P5` | 5-pulse feel |
+| `P4` | 4-pulse feel |
+| `P3` | 3-pulse feel |
+| `P2` | 2-pulse feel |
 
 ### 2. Anchor (A)
 
 Defines where the groove perceives structural gravity.
 
-- `A↓` - downbeat-anchored (beat 1 dominant)
-- `A↑` - upbeat-anchored
-- `A↔` - backbeat-anchored (beats 2 & 4 define identity)
-- (omitted) - neutral, floating, no dominant anchor
+| Symbol | Meaning |
+|--------|---------|
+| `A↓` | downbeat-anchored (beat 1 dominant) |
+| `A↑` | upbeat-anchored |
+| `A↔` | backbeat-anchored (beats 2 & 4 define identity) |
+| (omitted) | neutral, floating, no dominant anchor |
 
 ### 3. Syncopation (S)
 
 Describes internal conflict within the pulse groups.
 
-- (omitted) - Clean pulses. Hits mostly align with the main pulse structure.
-- `S` - Syncopated pulses. Contains complex internal articulation, ghost notes, or friction against the main pulse.
+| Symbol | Meaning |
+|--------|---------|
+| (omitted) | Clean pulses. Hits mostly align with the main pulse structure. |
+| `S` | Syncopated pulses. Contains complex internal articulation, ghost notes, or friction against the main pulse. |
 
 ### 4. Cadence (C)
 
 Describes how the pulses relate to one another temporally.
 
-- (omitted) - On-beat resolution.
-- `C<` - Anticipatory (Push). Pulses tend to arrive early or "push" into the next slot.
-- `C>` - Delayed (Drag). Pulses sit behind the beat or resolve late.
-- `C<>` - Mixed. Contains both pushing and dragging elements.
+| Symbol | Meaning |
+|--------|---------|
+| (omitted) | On-beat resolution. |
+| `C<` | Anticipatory (Push). Pulses tend to arrive early or "push" into the next slot. |
+| `C>` | Delayed (Drag). Pulses sit behind the beat or resolve late. |
+| `C<>` | Mixed. Contains both pushing and dragging elements. |
 
 ## Examples
 
@@ -151,7 +159,7 @@ P4 A↓ C<
 3. Different hit patterns may share identical GSN
 4. If a distinction requires counting, it does not belong in GSN
 
-## Intent
+## Intended Use
 
 GSN is designed to:
 - compare grooves across genres
