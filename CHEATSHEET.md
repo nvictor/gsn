@@ -21,3 +21,11 @@
 - `C>` : Delayed (Drag)
 - `C<>`: Mixed
 - *(omitted)*: On-beat resolution
+
+## Live Mode (Shorthand)
+- `v`: Downbeat (`A↓`)
+- `^`: Upbeat (`A↑`)
+- `<`: Push (`C<`)
+- `>`: Drag (`C>`)
+- Omit labels (`P`, `A`, `C`) if position is clear.
+- Example: `4vS<` = `P4 A↓ S C<`
