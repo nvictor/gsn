@@ -1,6 +1,6 @@
-# GSN Examples
+# GUS Examples
 
-This document serves as a workbook and reference for GSN (Groove Structure Notation) in practice, covering basic patterns, common grooves, and edge cases.
+This document serves as a workbook and reference for GUS (Groove Unified Syntax) in practice, covering basic patterns, common grooves, and edge cases.
 
 ## Basic Examples
 
@@ -13,7 +13,7 @@ Structural reading:
 - Last hit pushes into the next bar (Anticipation)
 - Clean internal structure
 
-GSN:
+GUS:
 ```text
 P4 A↓ C<
 ```
@@ -27,7 +27,7 @@ Structural reading:
 - Clean internal structure
 - Anticipatory cadence
 
-GSN:
+GUS:
 ```text
 P4 A↓ C<
 ```
@@ -43,7 +43,7 @@ Structural reading:
 - Internal syncopation
 - No real cadence
 
-GSN:
+GUS:
 ```text
 P2 A↓ S
 ```
@@ -57,7 +57,7 @@ Structural reading:
 - Clean hits on downbeats and upbeats
 - Anticipatory resolution
 
-GSN:
+GUS:
 ```text
 P3 C<
 ```
@@ -73,7 +73,7 @@ Structural reading:
 - High internal friction/complexity (Syncopation)
 - Anticipatory resolution
 
-GSN:
+GUS:
 ```text
 P5 S C<
 ```

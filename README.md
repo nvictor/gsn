@@ -1,7 +1,7 @@
-# Groove Structure Notation (GSN)
+# Groove Unified Syntax (GUS)
 **Version:** 1.0.0
 
-GSN is a structural rhythm notation system for capturing the rhythmic contour and "feel" of a groove quickly.
+GUS is a structural rhythm notation system for capturing the rhythmic contour and "feel" of a groove quickly.
 
 ## Model: Captures vs Ignores
 
@@ -15,7 +15,7 @@ GSN is a structural rhythm notation system for capturing the rhythmic contour an
 ## Canonical Syntax
 
 ```text
-GSN ::= <Pulse> [<Anchor>] [<Syncopation>] [<Cadence>]
+GUS ::= <Pulse> [<Anchor>] [<Syncopation>] [<Cadence>]
 ```
 
 Example: `P4 A↓ S C<`
@@ -47,16 +47,16 @@ Describes how pulses relate to one another temporally.
 
 ## Semantics Rules
 
-- **Structural Priority:** GSN describes what a groove *feels like*, not where individual hits occur.
+- **Structural Priority:** GUS describes what a groove *feels like*, not where individual hits occur.
 - **Pulse Dominance:** The Pulse (`P`) axis is the primary reference for all other modifiers.
 - **Silent Defaults:** Neutral values (no specific anchor, clean pulses, on-beat resolution) are omitted by default.
 - **Left-to-Right:** Symbols are typically read and processed in the order defined by the syntax.
 
 ## Constraints / Invariants
 
-- A GSN expression must contain exactly one Pulse (`P`) definition.
+- A GUS expression must contain exactly one Pulse (`P`) definition.
 - Symbols from different axes cannot be nested.
-- If a distinction requires counting specific subdivisions, it is outside the scope of GSN.
+- If a distinction requires counting specific subdivisions, it is outside the scope of GUS.
 - No symbol may encode absolute hit positions.
 
 ## Live Mode (Shorthand)

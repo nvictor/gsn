@@ -1,6 +1,6 @@
-# GSN Changelog
+# GUS Changelog
 
-All notable changes to the Groove Structure Notation (GSN) specification will be documented in this file.
+All notable changes to the Groove Unified Syntax (GUS) specification will be documented in this file.
 
 ## [1.0.0] - 2026-02-16
 

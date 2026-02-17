@@ -1,4 +1,4 @@
-# GSN Cheatsheet (v1.0.0)
+# GUS Cheatsheet (v1.0.0)
 
 ## Pulse (P)
 - `P2`: 2-pulse feel
