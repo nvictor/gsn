@@ -29,7 +29,7 @@ Defines the number of felt groupings in the measure.
 ### 2. Anchor (A)
 Defines where the groove perceives structural gravity.
 - `A↓`: Downbeat-anchored (beat 1 dominant).
-- `A↑`: Upbeat-anchored.
+- `A↑`: Upbeat-anchored (beat 3 dominant).
 - `A↔`: Backbeat-anchored (beats 2 & 4 define identity).
 - *(omitted)*: Neutral or floating.
 
