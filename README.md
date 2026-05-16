@@ -26,7 +26,7 @@ Example: `P4 A↓ S1<`
 
 Defines the number of felt groupings in the cycle.
 
-- `P2`, `P3`, `P4`, `P5`, `P6`: Number of perceived main impulses.
+- `P2`, `P3`, `P4`, `P5`, `P6`, `P8`: Number of perceived main impulses.
 
 ### 2. Pulse Shape
 
@@ -50,14 +50,23 @@ Defines where the groove perceives structural gravity.
 
 Names the pulse that carries internal tension, displaced articulation, or timing pressure.
 
+```text
+S<position><timing?>
+S(<positions>)<timing?>
+```
+
 - `S2`: Pulse 2 has internal tension or displaced articulation.
 - `S1<`: Pulse 1 is anticipated. This often means the next cycle arrives early.
 - `S4<`: Pulse 4 itself is anticipated.
 - `S2>`: Pulse 2 is delayed.
+- `S2<>`: Pulse 2 has bidirectional timing tension: both anticipated and delayed.
 - `S1< S3 S4>`: Multiple pulse positions are marked.
+- `S(2,3,4,1)<`: Grouped form for `S2< S3< S4< S1<`.
+- `S(2,4)<>`: Grouped form for `S2<> S4<>`.
 - *(omitted)*: Clean pulses.
 
 The `<` and `>` marks attach to the pulse they modify. `S1<` and `S4<` are different readings.
+Grouped positions keep their written order. `S(2,3,4,1)<` is not the same reading as `S(1,2,3,4)<`.
 
 ## Semantics Rules
 
@@ -110,15 +119,14 @@ Hit pattern: `1, 1&, 1a, 2, 2&, 2a, 3, 3&, 3a, 4, 4&`
 
 Structural reading:
 
-- 4 main pulses
+- 8 main pulses
 - Downbeat anchored
-- The next cycle is anticipated
-- Clean internal structure
+- Pulses 2, 3, 4, and 1 are anticipated in wraparound order
 
 GUS:
 
 ```text
-P4 A↓ S1<
+P8 A↓ S(2,3,4,1)<
 ```
 
 ### Reggaeton groove / "It's My Life"
@@ -127,30 +135,29 @@ Hit pattern: `1, 1a, 2&, 3, 3a, 4&`
 
 Structural reading:
 
-- 2 main pulses
+- 4 main pulses
 - Downbeat anchored
-- Pulse 2 carries the internal syncopation
+- Pulses 2 and 4 have bidirectional timing tension
 
 GUS:
 
 ```text
-P2 A↓ S2
+P4 A↓ S2<> S4<>
 ```
 
-### 3-pulse action groove / Basara deshi
+### 8-pulse action groove / Basara deshi
 
 Hit pattern: `1, 1&, 2, 2&, 3, 3&, 4, 4&`
 
 Structural reading:
 
-- 3 main pulses: `1`, `2&`, `4`
-- Neutral anchor
-- The next cycle is anticipated
+- 8 main pulses
+- Downbeat anchored
 
 GUS:
 
 ```text
-P3 S1<
+P8 A↓
 ```
 
 ### 6-pulse uneven action groove
@@ -161,18 +168,19 @@ Structural reading:
 
 - 6 main pulses
 - The first four pulses feel longer than the last two
-- Neutral anchor
+- Downbeat anchored
 - Internal friction is carried by the uneven pulse shape
 
 GUS:
 
 ```text
-P6[3:3:3:3:2:2]
+P6[3:3:3:3:2:2] A↓
 ```
 
 ## Quick Reference
 
 - `P4`: 4-pulse feel.
+- `P8`: 8-pulse feel.
 - `P6[3:3:3:3:2:2]`: 6-pulse feel with unequal pulse spans.
 - `A↓`: Downbeat-anchored.
 - `A↑`: Upbeat-anchored.
@@ -180,4 +188,6 @@ P6[3:3:3:3:2:2]
 - `S2`: Pulse 2 is syncopated.
 - `S1<`: Pulse 1 arrives early.
 - `S2>`: Pulse 2 arrives late.
+- `S2<>`: Pulse 2 has bidirectional timing tension.
+- `S(2,3,4,1)<`: Pulses 2, 3, 4, and 1 arrive early in that order.
 - `4vS1<`: Live shorthand for `P4 A↓ S1<`.
