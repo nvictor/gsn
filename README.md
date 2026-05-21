@@ -1,20 +1,20 @@
 # Groove Unified Syntax (GUS)
-**Version:** 1.1.0
+**Version:** 1.2.0
 
 GUS is a compact notation for describing the felt structure of a groove.
 
-It captures pulse count, pulse shape, anchor, and syncopation. It does not capture instrumentation, dynamics, exact subdivisions, or exact MIDI/audio placement.
+It captures pulse count, pulse shape, anchor, and modifiers. It does not capture instrumentation, dynamics, exact subdivisions, or exact MIDI/audio placement.
 
 ## Syntax
 
 ```text
-GUS ::= <Pulse> [<PulseShape>] [<Anchor>] [<Syncopation>...]
+GUS ::= <Pulse> [<PulseShape>] [<Anchor>] [<Modifier>...]
 ```
 
 Example:
 
 ```text
-P4 A↓ S1<
+P4 A↓ N(1)<
 ```
 
 ## Symbols
@@ -44,30 +44,55 @@ Use `A` to name the groove's structural gravity.
 - `A↔`: Backbeat-anchored.
 - Omit `A` for neutral or floating grooves.
 
-### Syncopation
+### Modifiers
 
-Use `S` to name the pulse that carries tension, displacement, or timing pressure.
+Use modifiers to name pulse omissions, neighbor hits, and upbeats.
 
 ```text
-S<position><timing?>
-S(<positions>)<timing?>
+S(<pulse-list>)<timing?>
+N(<pulse-list>)<timing?>
+U(<pulse-list>)
 ```
 
-- `S2`: Pulse 2 is syncopated.
-- `S1<`: Pulse 1 arrives early.
-- `S4<`: Pulse 4 arrives early.
-- `S2>`: Pulse 2 arrives late.
-- `S2<>`: Pulse 2 has both early and late tension.
-- `S(2,3,4,1)<`: Grouped form for `S2< S3< S4< S1<`.
-- `S(2,4)<>`: Grouped form for `S2<> S4<>`.
+#### Omitted pulse syncopation: S
 
-`<` and `>` attach to the pulse they modify. Grouped positions keep their written order, so `S(2,3,4,1)<` is not the same reading as `S(1,2,3,4)<`.
+Use `S(...)` when the named pulse is omitted.
+
+- `S(4)<`: Pulse 4 is omitted; a neighboring hit before it is present.
+- `S(4)>`: Pulse 4 is omitted; a neighboring hit after it is present.
+- `S(4)<>`: Pulse 4 is omitted; neighboring hits before and after it are present.
+- `S(2,4)<>`: Pulses 2 and 4 are omitted; each has neighbor hits before and after.
+- `S(2,3,4,1)<`: Pulses 2, 3, 4, and 1 are omitted with preceding neighbor hits in that order.
+
+#### Neighbor hits on present pulses: N
+
+Use `N(...)` when the named pulse is present and has a neighbor hit.
+
+- `N(1)<`: Pulse 1 is present and has an anticipatory hit before it.
+- `N(1)>`: Pulse 1 is present and has a trailing hit after it.
+- `N(1)<>`: Pulse 1 is present and has neighbor hits before and after it.
+- `N(1,3)<`: Pulses 1 and 3 are present and have anticipatory neighbor hits.
+
+#### Upbeats in P4: U
+
+Use `U(...)` to mark `&` upbeats inside a `P4` feel.
+
+- `U(1)`: `1&` is present.
+- `U(2)`: `2&` is present.
+- `U(3)`: `3&` is present.
+- `U(4)`: `4&` is present.
+- `U(1,2,3,4)`: All four upbeats are present.
+
+`U(...)` cannot take `<`, `>`, or `<>`, and it cannot be wrapped inside `S(...)` or `N(...)`.
 
 ## Rules
 
 - A GUS expression must contain exactly one `P` token.
 - Positions refer to felt pulse numbers, not exact beats or subdivisions.
-- Symbols from different axes cannot be nested.
+- Use `S(...)` only when the named pulse is omitted.
+- Use `N(...)` only when the named pulse is present.
+- Use `U(...)` only for `&` upbeats in a `P4` feel.
+- Use `P8` when upbeats become primary felt pulses.
 - Omit neutral values by default.
 - Read tokens left to right.
 
@@ -77,13 +102,14 @@ Use shorthand for fast capture while listening.
 
 - `v`: `A↓`
 - `^`: `A↑`
-- `<`: early
-- `>`: late
+- `<`: neighbor hit before the named pulse
+- `>`: neighbor hit after the named pulse
+- `<>`: neighbor hits before and after the named pulse
 
 Example:
 
 ```text
-4vS1< = P4 A↓ S1<
+4vN(1)< = P4 A↓ N(1)<
 ```
 
 ## Examples
@@ -93,7 +119,7 @@ Example:
 Hit pattern: `1, 2, 3, 4, 4&`
 
 ```text
-P4 A↓ S1<
+P4 A↓ N(1)<
 ```
 
 ### Metal "gallop" groove
@@ -109,7 +135,29 @@ P8 A↓ S(2,3,4,1)<
 Hit pattern: `1, 1a, 2&, 3, 3a, 4&`
 
 ```text
-P4 A↓ S2<> S4<>
+P4 A↓ S(2,4)<>
+```
+
+### Anticipated return groove
+
+Hit pattern: `1, 2, 3, 3a, 4e, 4a`
+
+```text
+P4 A↓ S(4)<> N(1)<
+```
+
+### Trailing return variant
+
+```text
+P4 A↓ S(4)<> N(1)>
+```
+
+### Four-upbeat groove
+
+Hit pattern: `1, 1&, 2, 2&, 3, 3&, 4, 4&`
+
+```text
+P4 A↓ U(1,2,3,4)
 ```
 
 ### 8-pulse action groove / Basara deshi
