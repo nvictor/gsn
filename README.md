@@ -46,17 +46,25 @@ Use `A` to name the groove's structural gravity.
 
 ### Modifiers
 
-Use modifiers to name pulse omissions, neighbor hits, and upbeats.
+Use modifiers to name plain omissions, syncopated omissions, neighbor hits, and upbeats.
 
 ```text
+O(<pulse-list>)
 S(<pulse-list>)<timing?>
 N(<pulse-list>)<timing?>
 U(<pulse-list>)
 ```
 
+#### Plain omission: O
+
+Use `O(...)` when the named pulse is absent with no displacement.
+
+- `O(4)`: Pulse 4 is absent with no displacement.
+- `O(2,4)`: Pulses 2 and 4 are absent with no displacement.
+
 #### Omitted pulse syncopation: S
 
-Use `S(...)` when the named pulse is omitted.
+Use `S(...)` when the named pulse is omitted and displaced by neighbor hits.
 
 - `S(4)<`: Pulse 4 is omitted; a neighboring hit before it is present.
 - `S(4)>`: Pulse 4 is omitted; a neighboring hit after it is present.
@@ -89,7 +97,8 @@ Use `U(...)` to mark `&` upbeats inside a `P4` feel.
 
 - A GUS expression must contain exactly one `P` token.
 - Positions refer to felt pulse numbers, not exact beats or subdivisions.
-- Use `S(...)` only when the named pulse is omitted.
+- Use `O(...)` only when the named pulse is absent with no displacement.
+- Use `S(...)` only when the named pulse is omitted and displaced by neighbor hits.
 - Use `N(...)` only when the named pulse is present.
 - Use `U(...)` only for `&` upbeats in a `P4` feel.
 - Use `P8` when upbeats become primary felt pulses.
@@ -114,20 +123,36 @@ Example:
 
 ## Examples
 
-### Straight groove with anticipation
+### Straight groove
+
+Hit pattern: `1, 2, 3, 4`
+
+```text
+P4 A↓
+```
+
+### Straight groove with missing pulse
+
+Hit pattern: `1, 2, 3`
+
+```text
+P4 A↓ O(4)
+```
+
+### Straight groove with upbeat anticipation
 
 Hit pattern: `1, 2, 3, 4, 4&`
 
 ```text
-P4 A↓ N(1)<
+P4 A↓ U(4)
 ```
 
-### Metal "gallop" groove
+### Metal groove / Gallop groove
 
 Hit pattern: `1, 1&, 1a, 2, 2&, 2a, 3, 3&, 3a, 4, 4&`
 
 ```text
-P8 A↓ S(2,3,4,1)<
+P8 A↓ N(2,3,4)<
 ```
 
 ### Reggaeton groove / "It's My Life"
@@ -135,32 +160,10 @@ P8 A↓ S(2,3,4,1)<
 Hit pattern: `1, 1a, 2&, 3, 3a, 4&`
 
 ```text
-P4 A↓ S(2,4)<>
+P4 A↓ U(2,4) S(2,4)<
 ```
 
-### Anticipated return groove
-
-Hit pattern: `1, 2, 3, 3a, 4e, 4a`
-
-```text
-P4 A↓ S(4)<> N(1)<
-```
-
-### Trailing return variant
-
-```text
-P4 A↓ S(4)<> N(1)>
-```
-
-### Four-upbeat groove
-
-Hit pattern: `1, 1&, 2, 2&, 3, 3&, 4, 4&`
-
-```text
-P4 A↓ U(1,2,3,4)
-```
-
-### 8-pulse action groove / Basara deshi
+### 8-pulse action groove / "Basara Deshi"
 
 Hit pattern: `1, 1&, 2, 2&, 3, 3&, 4, 4&`
 
@@ -174,4 +177,28 @@ Hit pattern: `1, 1a, 2&, 3e, 4, 4&`
 
 ```text
 P6[3:3:3:3:2:2] A↓
+```
+
+### Axel F groove (original)
+
+Hit pattern: `1, 2, 2a, 3e, 3&, 4, 4&`
+
+```text
+P4 A↓ S(3)<> U(3,4) 
+```
+
+### Axel F groove (no anticipation)
+
+Hit pattern: `1, 2, 2a, 3e, 3&, 4`
+
+```text
+P4 A↓ S(3)<> U(3) 
+```
+
+### Balearic groove
+
+Hit pattern: `1, 1e, 2&, 3&`
+
+```text
+P4 A↓ N(2)< U(2,3) O(4)
 ```
