@@ -1,5 +1,5 @@
 # Groove Unified Syntax (GUS)
-**Version:** 1.2.0
+**Version:** 1.2.1
 
 GUS is a compact notation for describing the felt structure of a groove.
 
@@ -23,7 +23,7 @@ P4 A↓ N(1)<
 
 Use `P` to name the number of felt pulses in the cycle.
 
-- `P2`, `P3`, `P4`, `P5`, `P6`, `P8`
+- `P2`, `P3`, `P4`, `P5`, `P6`, `P8`, `P16`
 
 ### Pulse Shape
 
@@ -102,6 +102,7 @@ Use `U(...)` to mark `&` upbeats inside a `P4` feel.
 - Use `N(...)` only when the named pulse is present.
 - Use `U(...)` only for `&` upbeats in a `P4` feel.
 - Use `P8` when upbeats become primary felt pulses.
+- Use `P16` when sixteenth-note positions become primary felt pulses.
 - Omit neutral values by default.
 - Read tokens left to right.
 
@@ -169,6 +170,14 @@ Hit pattern: `1, 1&, 2, 2&, 3, 3&, 4, 4&`
 
 ```text
 P8 A↓
+```
+
+### 16-pulse sixteenth grid
+
+Hit pattern: `1, 1e, 1&, 1a, 2, 2e, 2&, 2a, 3, 3e, 3&, 3a, 4, 4e, 4&, 4a`
+
+```text
+P16 A↓
 ```
 
 ### 6-pulse uneven action groove
