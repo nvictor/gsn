@@ -211,3 +211,11 @@ Hit pattern: `1, 1e, 2&, 3&`
 ```text
 P4 A↓ N(2)< U(2,3) O(4)
 ```
+
+### Snake charmer groove
+
+Hit pattern: `1, 1&, 1a, 2, 2&, 3, 3&, 3a, 4, 4&`
+
+```text
+P8 A↓ U(2,6)
+```
